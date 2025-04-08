@@ -12,13 +12,12 @@
 
   --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
   --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+  --vt-c-divider-light-1: rgba(84, 84, 84, 0.65);
+  --vt-c-divider-light-2: rgba(84, 84, 84, 0.48);
 
   --vt-c-text-light-1: var(--vt-c-indigo);
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --vt-c-text-light-2: rgba(235, 235, 235, 0.64);
 }
 
 /* semantic color variables for this project */
@@ -35,21 +34,6 @@
 
   --section-gap: 160px;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
-}
-
 *,
 *::before,
 *::after {
@@ -57,7 +41,29 @@
   margin: 0;
   font-weight: normal;
 }
+/* fallback */
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 200;
+  src: url(matertial-icon.woff2) format('woff2');
+}
 
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
 body {
   min-height: 100vh;
   color: var(--color-text);
@@ -83,4 +89,31 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.active-link {
+  background-color: rgb(124 58 237 / var(--tw-bg-opacity, 1)) !important;
+}
+.sidebar-link > a {
+  color: #fff !important;
+  display: contents;
+}
+.secondary-badge {
+  @apply inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset;
+}
+button:disabled {
+  background-color: #f8f9fa !important;
+  color: #818181 !important;
+}
+button:disabled:hover {
+  background-color: #f8f9fa !important;
+  color: #818181 !important;
+}
+.bg-primary {
+  @apply bg-[#22405a];
+}
+.bg-secondary {
+  @apply bg-[#ebeff3];
+}
+.text-decoration-none {
+  text-decoration: none !important;
 }
